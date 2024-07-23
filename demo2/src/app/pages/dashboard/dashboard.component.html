@@ -1,0 +1,11 @@
+<div *ngIf="isLoggin"></div>
+<div *ngIf="!isLoggin">
+  <div class="container text-center">
+    <div class="g-5 row row-cols-3">
+      <div *ngFor="let item of responseData">
+        <app-card6 [responseId]="item.id" [title]="item.title" [description]="item.description" [imageUrl]="item.imageurl">
+        </app-card6>
+      </div>
+    </div>
+  </div>
+</div>
