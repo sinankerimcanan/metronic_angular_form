@@ -8,9 +8,8 @@ describe('WidgetsExamplesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ WidgetsExamplesComponent ]
-    })
-    .compileComponents();
+      declarations: [WidgetsExamplesComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

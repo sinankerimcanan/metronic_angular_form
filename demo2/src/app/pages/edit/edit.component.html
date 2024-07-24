@@ -1,0 +1,13 @@
+<div class="card mb-10 ">
+  <div class="card-body align-items-center py-8">
+    <button (click)="save()" class="btn btn-primary">
+    </button>
+    <ng-container *ngIf="isAlert">
+      <div class="mb-lg-15 alert alert-success">
+        <div class="alert-text font-weight-bold">
+          The login details are incorrect
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -14,16 +14,18 @@ export class DashboardComponent {
   modalConfig: ModalConfig = {
     modalTitle: 'Modal title',
     dismissButtonLabel: 'Submit',
-    closeButtonLabel: 'Cancel'
+    closeButtonLabel: 'Cancel',
   };
   @ViewChild('modal') private modalComponent: ModalComponent;
-  constructor(private http : HttpClient,
-    private productService : ProductService,
-    private sepetService : SepetService,
-    private cdr : ChangeDetectorRef) {}
+  constructor(
+    private http: HttpClient,
+    private productService: ProductService,
+    private sepetService: SepetService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
-  responseData : Product[] = []
-  isLoggin = true
+  responseData: Product[] = [];
+  isLoggin = true;
 
   async openModal() {
     return await this.modalComponent.open();
@@ -37,16 +39,15 @@ export class DashboardComponent {
       (response) => {
         this.responseData = response;
         console.log('Ürün Verileri Çekildi');
-        console.log(response)
+        console.log(response);
         // this.sepetService.setSepetData(this.responseData)
-        this.isLoggin = false
-        this.cdr.detectChanges()
-
+        this.isLoggin = false;
+        this.cdr.detectChanges();
       },
       (error) => {
         console.log('Ürün Verileri çekilmedi');
-        this.isLoggin = false
-        this.cdr.detectChanges()
+        this.isLoggin = false;
+        this.cdr.detectChanges();
       }
     );
   }

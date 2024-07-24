@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 // #fake-start#
 import { FakeAPIService } from './_fake/fake-api.service';
 import { SepetService } from './service/sepet.service';
+import { EditComponent } from './pages/edit/edit.component';
 // #fake-end#
 
 function appInitializer(authService: AuthService) {
@@ -51,7 +52,8 @@ function appInitializer(authService: AuthService) {
       useFactory: appInitializer,
       multi: true,
       deps: [AuthService],
-    },SepetService
+    },
+    SepetService,
   ],
   bootstrap: [AppComponent],
 })

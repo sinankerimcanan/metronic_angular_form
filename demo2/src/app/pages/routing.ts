@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { EditComponent } from './edit/edit.component';
 
 const Routing: Routes = [
   {
@@ -10,6 +11,10 @@ const Routing: Routes = [
     path: 'builder',
     loadChildren: () =>
       import('./builder/builder.module').then((m) => m.BuilderModule),
+  },
+  {
+    path: 'edit',
+    loadChildren: () => import('./edit/edit.module').then((m) => m.EditModule),
   },
   {
     path: 'crafted/pages/profile',
