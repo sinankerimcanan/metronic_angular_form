@@ -7,6 +7,8 @@ import {
   ModalsModule,
   WidgetsModule,
 } from 'src/app/_metronic/partials';
+import { DropdownMenusModule } from '../../_metronic/partials/content/dropdown-menus/dropdown-menus.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [EditComponent],
@@ -21,6 +23,9 @@ import {
     WidgetsModule,
     ModalsModule,
     CardsModule,
+    DropdownMenusModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class EditModule {}

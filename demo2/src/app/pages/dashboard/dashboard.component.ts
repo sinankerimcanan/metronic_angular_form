@@ -37,10 +37,9 @@ export class DashboardComponent {
   fetchDataFromBackend() {
     this.productService.getItems().subscribe(
       (response) => {
+        // this.responseData = JSON.stringify(response);
         this.responseData = response;
-        console.log('Ürün Verileri Çekildi');
-        console.log(response);
-        // this.sepetService.setSepetData(this.responseData)
+        localStorage.setItem('data', JSON.stringify(this.responseData));
         this.isLoggin = false;
         this.cdr.detectChanges();
       },

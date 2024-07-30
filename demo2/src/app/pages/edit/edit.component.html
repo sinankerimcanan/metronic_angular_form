@@ -1,7 +1,65 @@
 <div class="card mb-10 ">
   <div class="card-body align-items-center py-8">
-    <button (click)="save()" class="btn btn-primary">
-    </button>
+    <form (ngSubmit)="onSubmit(responseData.id)" [formGroup]="itemsForm" action="">
+      <div class="row mb-10">
+        <label class="col-lg-3 col-form-label text-lg-end">Düzenlenecek Ürün:</label>
+        <div class="col-lg-9 col-xl-4">
+          <select (change)="onSelectedChange($event)" class="form-select form-select-solid" name="model.header.left">
+            <option value="">Ürün Seçin</option>
+            <option *ngFor="let item of items" value="{{item.id}}">{{item.id}} - {{item.title}}</option>
+          </select>
+          <div class="form-text text-muted">
+            Ürün Seçiniz
+          </div>
+        </div>
+      </div>
+      <div class="row mb-10">
+        <label class="col-lg-3 col-form-label text-lg-end"> Başlık : </label>
+        <div class="col-lg-9 col-xl-4">
+          <input type="text" class="form-control form-control-solid" formControlName="title" name="title"
+            value="{{responseData.title}}" placeholder="Başlık..." data-kt-search-element="input" />
+        </div>
+      </div>
+      <div class="row mb-10">
+        <div class="me-7 mb-4 d-flex justify-content-center ">
+          <div class=" 
+              symbol symbol-100px symbol-lg-160px symbol-fixed
+              position-relative
+            ">
+            <img src="{{responseData.imageurl}}" alt="Metronic" />
+          </div>
+        </div>
+        <label class="col-lg-3 col-form-label text-lg-end"> Resim : </label>
+        <div class="col-lg-9 col-xl-4">
+          <input (change)="onFileSelected($event)" formControlName="imageurl" type="file"
+            class="form-control form-control-solid" name="imageurl" data-kt-search-element="input" />
+        </div>
+      </div>
+      <div class="row mb-10">
+        <label class="col-lg-3 col-form-label text-lg-end">Stok Durumu :</label>
+        <div class="col-lg-9 col-xl-4">
+          <label class="
+                form-check form-check-custom form-check-solid form-switch
+                mb-5
+              ">
+            <input class="form-check-input" type="checkbox" formControlName="stockstatus"
+              name="model.header.fixed.desktop" [(ngModel)]="responseData.stockstatus" />
+            <span class="form-check-label text-muted"></span>
+          </label>
+        </div>
+      </div>
+      <div class="row mb-10">
+        <label class="col-lg-3 col-form-label text-lg-end"> Açıklama : </label>
+        <div class="col-lg-9 col-xl-4">
+          <input type="text" class="form-control form-control-solid" name="description" formControlName="description"
+            value="{{responseData.description}}" placeholder="Açıklama..." data-kt-search-element="input" />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary d-flex justify-content-end">Ürünü Güncelleme
+      </button>
+      <button class="btn btn-danger"> Ürünü Sil</button>
+    </form>
+
     <ng-container *ngIf="isAlert">
       <div class="mb-lg-15 alert alert-success">
         <div class="alert-text font-weight-bold">
