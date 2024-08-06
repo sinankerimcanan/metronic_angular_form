@@ -57,8 +57,8 @@
       </div>
       <button type="submit" class="btn btn-primary d-flex justify-content-end">Ürünü Güncelleme
       </button>
-      <button class="btn btn-danger"> Ürünü Sil</button>
     </form>
+    <button (click)="deleteItem(responseData.id)" routerLink="/dashboard" class="btn btn-danger"> Ürünü Sil</button>
 
     <ng-container *ngIf="isAlert">
       <div class="mb-lg-15 alert alert-success">

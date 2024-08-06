@@ -27,6 +27,10 @@ export class EditService {
     const body = updateItem;
     return this.http.put<any>(`${this.apiUrl}/update/${id}`, updateItem);
   }
+  deleteItem(id: any) {
+    // console.log(id);
+    return this.http.delete<any>(`${this.apiUrl}/delete/${id}`);
+  }
 
   getSepetFromLocalStorage(): Product[] {
     const data = localStorage.getItem('data');

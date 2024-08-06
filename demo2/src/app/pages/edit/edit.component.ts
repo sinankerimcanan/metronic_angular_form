@@ -46,6 +46,19 @@ export class EditComponent {
       this.cdr.detectChanges();
     }, 2000);
   }
+  deleteItem(value: number) {
+    console.log('componenet');
+
+    this.editService.deleteItem(value).subscribe(
+      (response) => {
+        console.log('Item deleted successfully', response);
+      },
+      (error) => {
+        console.error('Error deleting item', error);
+      }
+    );
+  }
+
   onSelectedChange($event: Event) {
     this.selectedId = parseInt((event!.target as HTMLSelectElement).value);
     console.log('Seçilen değer:', this.selectedId);
